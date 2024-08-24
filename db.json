@@ -1,69 +1,61 @@
 {
   "songs": [
     {
-      "id": "1",
-      "title": "Song 2",
-      "artist": "Artist A"
+      "id": "5f48",
+      "title": "Time",
+      "artist": "Pink Floyd",
+      "album": "The Dark Side of the Moon",
+      "genre": "Progressive Rock",
+      "release_date": "1973-03-01",
+      "duration": "7:06",
+      "description": "A concept song about the passage of time.",
+      "track_number": "4",
+      "language": "English",
+      "mood": "reflective",
+      "date_added": "2024-08-24T21:55:24.567Z"
     },
     {
-      "id": "ae84",
-      "title": "dom",
-      "artist": "de"
+      "id": "7b71",
+      "title": "bb",
+      "artist": "bani",
+      "album": "bot",
+      "genre": "kk",
+      "release_date": "2024-08-09",
+      "duration": "5:00",
+      "description": "dd",
+      "track_number": "1",
+      "language": "Spanish",
+      "mood": "boom",
+      "date_added": "2024-08-24T22:40:49.968Z"
     },
     {
-      "id": "6fac",
-      "title": "j  fdkjl",
-      "artist": "jj43kuyi"
+      "id": "30f0",
+      "title": "JJ",
+      "artist": "Klm",
+      "album": "kas",
+      "genre": "Ballad",
+      "release_date": "2024-08-22",
+      "duration": "9:33",
+      "description": "",
+      "track_number": "3",
+      "popularity": "89",
+      "language": "Germany",
+      "mood": "kkey",
+      "date_updated": "2024-08-24T23:27:26.403Z"
     },
     {
-      "id": "40b7",
-      "title": "bn",
-      "artist": "kjn"
-    },
-    {
-      "id": "8eb9",
-      "title": "kkkb",
-      "artist": "gch"
-    },
-    {
-      "id": "706c",
-      "title": "fxgxg",
-      "artist": "hjv"
-    },
-    {
-      "id": "28b0",
-      "title": "jhb",
-      "artist": "kjbk"
-    },
-    {
-      "id": "8e98",
-      "title": "lcn",
-      "artist": "ac"
-    },
-    {
-      "id": "b508",
-      "title": "scaac",
-      "artist": "ac"
-    },
-    {
-      "id": "49b1",
-      "title": "ac",
-      "artist": "aca"
-    },
-    {
-      "id": "5eaa",
-      "title": "eg",
-      "artist": "eg"
-    },
-    {
-      "id": "8d37",
-      "title": "dfdf",
-      "artist": "df"
-    },
-    {
-      "id": "ee10",
-      "title": "hjk",
-      "artist": "hkjn"
+      "id": "2e2c",
+      "title": "oOPP",
+      "artist": "Hk",
+      "album": "GJ",
+      "genre": "Africa",
+      "release_date": "2024-08-06",
+      "duration": "7:00",
+      "description": "ere",
+      "track_number": "4",
+      "language": "English",
+      "mood": "tt",
+      "date_added": "2024-08-24T23:27:00.693Z"
     }
   ]
 }

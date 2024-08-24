@@ -15,14 +15,70 @@ const SongForm = () => {
 	// Find existing song if editing
 	const existingSong = list.find((song) => song.id === id);
 	const [title, setTitle] = useState(existingSong ? existingSong.title : "");
+	const [album, setAlbum] = useState(existingSong ? existingSong.album : "");
+	const [genre, setGenre] = useState(existingSong ? existingSong.genre : "");
+	const [release_date, setReleaseDate] = useState(
+		existingSong ? existingSong.release_date : ""
+	);
+	const [duration, setDuration] = useState(
+		existingSong ? existingSong.duration : ""
+	);
+	const [language, setLanguage] = useState(
+		existingSong ? existingSong.language : ""
+	);
+	const [mood, setMood] = useState(existingSong ? existingSong.mood : "");
 	const [artist, setArtist] = useState(existingSong ? existingSong.artist : "");
+	const [track_number, setTrackNumber] = useState(
+		existingSong ? existingSong.track_number : ""
+	);
+	const [popularity, setPopularity] = useState(
+		existingSong ? existingSong.popularity : ""
+	);
+	const [description, setDescription] = useState(
+		existingSong ? existingSong.description : ""
+	);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const date = new Date().toISOString();
 		if (existingSong) {
-			dispatch(updateSongRequest({ updatedSong: { id: id, title, artist } }));
+			dispatch(
+				updateSongRequest({
+					updatedSong: {
+						id: id,
+						title,
+						artist,
+						album,
+						genre,
+						release_date,
+						duration,
+						description,
+						track_number,
+						popularity,
+						language,
+						mood,
+						date_updated: date,
+					},
+				})
+			);
 		} else {
-			dispatch(addSongRequest({ newSong: { title, artist } }));
+			dispatch(
+				addSongRequest({
+					newSong: {
+						title,
+						artist,
+						album,
+						genre,
+						release_date,
+						duration,
+						description,
+						track_number,
+						language,
+						mood,
+						date_added: date,
+					},
+				})
+			);
 		}
 		navigate("/");
 	};
@@ -42,6 +98,68 @@ const SongForm = () => {
 				placeholder="Artist"
 				value={artist}
 				onChange={(e) => setArtist(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="Album"
+				value={album}
+				onChange={(e) => setAlbum(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="genre"
+				value={genre}
+				onChange={(e) => setGenre(e.target.value)}
+				required
+			/>
+			<Input
+				type="date"
+				placeholder="Release Date"
+				value={release_date}
+				onChange={(e) => setReleaseDate(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="Duration"
+				value={duration}
+				onChange={(e) => setDuration(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="Description"
+				value={description}
+				onChange={(e) => setDescription(e.target.value)}
+			/>
+			<Input
+				type="number"
+				placeholder="Track Number"
+				value={track_number}
+				onChange={(e) => setTrackNumber(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="Popularity"
+				value={popularity}
+				onChange={(e) => setPopularity(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="Language"
+				value={language}
+				onChange={(e) => setLanguage(e.target.value)}
+				required
+			/>
+			<Input
+				type="text"
+				placeholder="Mood"
+				value={mood}
+				onChange={(e) => setMood(e.target.value)}
 				required
 			/>
 			<SubmitButton type="submit">
