@@ -1,6 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import {
-	fetchSongsRequest,
 	fetchSongsSuccess,
 	fetchSongsFailure,
 	addSongSuccess,
@@ -12,6 +11,7 @@ function* fetchSongs() {
 	try {
 		const response = yield call(fetch, "http://localhost:5000/songs");
 		const data = yield response.json();
+		data.reverse();
 		yield put(fetchSongsSuccess(data));
 	} catch (error) {
 		yield put(fetchSongsFailure(error.toString()));

@@ -34,13 +34,14 @@ const SongList = () => {
 	return (
 		<Container>
 			<ImageContainer>
+				<HeaderContainer className="heading">
+					<Heading>Song List</Heading>
+				</HeaderContainer>
 				<div className="imageContainer">
-					<img src={guitarImage} className="logo" alt="guitar Image" />
 					<img src={guitarMusic} className="logo guitar" alt="guitar Image" />
 				</div>
 			</ImageContainer>
 			<SongListContainer>
-				<Heading>Song List</Heading>
 				<StyledLink to="/add">Add New Song</StyledLink>
 				<ListContainer>
 					{list.slice(0, showAll ? list.length : 5).map((song) => (
@@ -49,8 +50,8 @@ const SongList = () => {
 								<SongTitle>
 									{song.title} by {song.artist}
 								</SongTitle>
-								<p>Artist: {song.album}</p>
-								<p>Album: {song.artist}</p>
+								<p>Artist: {song.artist}</p>
+								<p>Album: {song.album}</p>
 								<p>Genre: {song.genre}</p>
 								<p>
 									Release Date:{" "}
@@ -64,12 +65,9 @@ const SongList = () => {
 								<p>Mood: {song.mood}</p>
 								<TimeDisplay>
 									<span>
-										{existingSong
-											? "Date Updated:"(
-													new Date(song.date_updated).toLocaleString()
-											  )
-											: "Dated Added:"}
-										{new Date(song.date_added).toLocaleString()}
+										<p>
+											Date Added: {new Date(song.date_added).toLocaleString()}
+										</p>
 									</span>
 									<TimeDisplayActual>
 										<p> {getRelativeTime(song.date_added)}</p>
@@ -103,9 +101,16 @@ const SongList = () => {
 
 const ListContainer = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 2fr 2fr;
+	grid-template-rows: auto;
 	grid-gap: 10px;
-	margin-top: 20px;
+	padding: 10px;
+	margin: 5px;
+	justify-items: center;
+	@media (max-width: 600px) {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-gap: 20px;
+	}
 `;
 const Lists = styled.div`
 	padding: 30px;
@@ -128,7 +133,7 @@ const ToggleButton = styled.button`
 `;
 
 const songStyle = css`
-	background-color: #f4f4f4;
+	background-color: #fff4f4;
 	margin: 10px;
 	padding: 15px;
 	border-radius: 10px;
@@ -140,30 +145,28 @@ const songStyle = css`
 		transform: translateY(-5px);
 	}
 	@media (max-width: 600px) {
-		max-width: 100%;
-		margin: 5px;
-		padding: 10px;
+		padding: 0;
+		margin: 0;
 	}
 `;
 
 const ImageContainer = styled.div`
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
 	.logo {
 		height: 6em;
-		padding: 1.5em;
 		will-change: filter;
 		transition: filter 300ms;
 		border-radius: 30px;
 	}
-	.imageContainer {
-		display: flex;
-		justify-content: space-between;
-	}
+
 	.logo.guitar {
 		width: 100px;
 		border-radius: 50%;
 	}
 	.logo.guitar:hover {
-		filter: drop-shadow(0 0 2em #61dafbaa);
+		filter: drop-shadow(0 0 2em #61eafbaa);
 	}
 
 	@keyframes logo-spin {
@@ -175,11 +178,17 @@ const ImageContainer = styled.div`
 		}
 	}
 `;
+const HeaderContainer = styled.div`
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	text-align: center;
+	margin: auto;
+`;
 
 const Container = styled.div`
 	display: flex;
 	flex-direction: column;
-	background-color: ${(props) => props.theme.colors.background};
 `;
 
 const Heading = styled.h1`
@@ -214,6 +223,7 @@ const SongTitle = styled.h1`
 	${typography}
 	font-size: ${(props) => props.theme.fontSizes.medium};
 	color: ${(props) => props.theme.colors.dark};
+	text-align: center;
 `;
 
 const Actions = styled.div`
@@ -228,19 +238,30 @@ display: flex;
 align:items: center;
 justify:content: space-between;
 position: relative;
+@media (max-width: 600px) {
+	display:inline-block;
+}
 `;
 const TimeDisplayActual = styled.div`
 	position: relative;
-	top: 10px;
-	left: 20%;
+	top: 0px;
+	left: 15%;
 `;
 
 const StyledLink = styled(Link)`
-	${typography}
-	color: ${(props) => props.theme.colors.primary};
+	${layout}
+	${color}
+  ${space}
+  border: none;
 	text-decoration: none;
+	background-color: ${(props) => props.theme.colors.secondary};
+	color: ${(props) => props.theme.colors.white};
+	padding: ${(props) => props.theme.space[2]}px
+		${(props) => props.theme.space[3]}px;
+	border-radius: ${(props) => props.theme.radii.small};
+	cursor: pointer;
 	&:hover {
-		text-decoration: underline;
+		background-color: ${(props) => props.theme.colors.dark};
 	}
 `;
 const LinkSection = styled.section`

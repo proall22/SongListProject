@@ -57,7 +57,7 @@ const SongForm = () => {
 						popularity,
 						language,
 						mood,
-						date_updated: date,
+						date_added: date,
 					},
 				})
 			);

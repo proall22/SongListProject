@@ -23,8 +23,7 @@ const songsSlice = createSlice({
 			state.loading = true;
 		},
 		addSongSuccess: (state, action) => {
-			state.list.push(action.payload);
-			console.log(action.payload.id);
+			state.list.unshift(action.payload);
 		},
 		addSongFailure: (state, action) => {
 			state.error = action.payload;
