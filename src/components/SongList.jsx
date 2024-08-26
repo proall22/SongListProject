@@ -2,20 +2,17 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSongsRequest, deleteSongRequest } from "../features/songsSlice";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { space, layout, color, typography, buttonStyle } from "styled-system";
-import guitarImage from "/musicGuitar.jpg";
 import guitarMusic from "/music.jpg";
-import { getRelativeTime } from "../utils/timeutils";
+import { getRelativeTime } from "../utils/timeUtils";
 
 const SongList = () => {
 	const [showAll, setShowAll] = useState(false);
 	const dispatch = useDispatch();
 	const { list, loading, error } = useSelector((state) => state.songs);
-	const { id } = useParams();
-	const existingSong = list.find((song) => song.id === id);
 	const handleToggle = () => {
 		setShowAll(!showAll);
 	};
@@ -167,15 +164,6 @@ const ImageContainer = styled.div`
 	}
 	.logo.guitar:hover {
 		filter: drop-shadow(0 0 2em #61eafbaa);
-	}
-
-	@keyframes logo-spin {
-		from {
-			transform: rotate(0deg);
-		}
-		to {
-			transform: rotate(360deg);
-		}
 	}
 `;
 const HeaderContainer = styled.div`
