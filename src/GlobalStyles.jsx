@@ -9,6 +9,7 @@ const GlobalStyles = () => (
 				padding: 0;
 				box-sizing: border-box;
 				background: #f0e0f0;
+				font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 			}
 		`}
 	/>

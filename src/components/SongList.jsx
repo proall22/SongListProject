@@ -156,6 +156,7 @@ const ImageContainer = styled.div`
 		will-change: filter;
 		transition: filter 300ms;
 		border-radius: 30px;
+		cursor: pointer;
 	}
 
 	.logo.guitar {
@@ -163,7 +164,7 @@ const ImageContainer = styled.div`
 		border-radius: 50%;
 	}
 	.logo.guitar:hover {
-		filter: drop-shadow(0 0 2em #61eafbaa);
+		filter: drop-shadow(0 0 2em #62eafbaa);
 	}
 `;
 const HeaderContainer = styled.div`
@@ -182,6 +183,11 @@ const Container = styled.div`
 const Heading = styled.h1`
 	${typography}
 	color: ${(props) => props.theme.colors.dark};
+	cursor: pointer;
+	&:hover {
+		filter: drop-shadow(0 0 2em #ffea3e);
+		text-shadow: 0 1px 1px #aeaa3e;
+	}
 `;
 
 const SongListContainer = styled.ul`
@@ -215,6 +221,7 @@ const SongTitle = styled.h1`
 `;
 
 const Actions = styled.div`
+	${space}
 	display: flex;
 	gap: ${(props) => props.theme.space[2]}px;
 	display: flex;
