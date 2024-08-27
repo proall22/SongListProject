@@ -23,3 +23,5 @@ reportWebVitals.js
 *.njsproj
 *.sln
 *.sw?
+
+.vercel

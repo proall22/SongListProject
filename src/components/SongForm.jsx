@@ -73,6 +73,7 @@ const SongForm = () => {
 						duration,
 						description,
 						track_number,
+						popularity,
 						language,
 						mood,
 						date_added: date,

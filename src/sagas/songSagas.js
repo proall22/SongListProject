@@ -9,7 +9,7 @@ import {
 
 function* fetchSongs() {
 	try {
-		const response = yield call(fetch, "http://localhost:5000/songs");
+		const response = yield call(fetch, "/api/songs");
 		const data = yield response.json();
 		data.reverse();
 		yield put(fetchSongsSuccess(data));
@@ -20,7 +20,7 @@ function* fetchSongs() {
 
 function* addSong(action) {
 	const { newSong } = action.payload;
-	const response = yield call(fetch, "http://localhost:5000/songs", {
+	const response = yield call(fetch, "/api/songs", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(newSong),
@@ -31,7 +31,7 @@ function* addSong(action) {
 
 function* updateSong(action) {
 	const { updatedSong } = action.payload;
-	yield call(fetch, `http://localhost:5000/songs/${updatedSong.id}`, {
+	yield call(fetch, `/api/songs/${updatedSong.id}`, {
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(updatedSong),
@@ -41,7 +41,7 @@ function* updateSong(action) {
 
 function* deleteSong(action) {
 	const { songId } = action.payload;
-	yield call(fetch, `http://localhost:5000/songs/${songId}`, {
+	yield call(fetch, `/api/songs/${songId}`, {
 		method: "DELETE",
 	});
 	yield put(deleteSongSuccess(songId));

@@ -26,7 +26,13 @@ const SongList = () => {
 	};
 
 	if (loading) return <p>Loading...</p>;
-	if (error) return <p>Error: {error}</p>;
+	if (error)
+		return (
+			<ErrorContainer>
+				<h1>Sorry, Try Again Later</h1>
+				<p>Error: {error}</p>
+			</ErrorContainer>
+		);
 
 	return (
 		<Container>
@@ -174,6 +180,13 @@ const HeaderContainer = styled.div`
 	text-align: center;
 	margin: auto;
 `;
+const ErrorContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #c71a1acb;
+`;
 
 const Container = styled.div`
 	display: flex;
@@ -240,7 +253,7 @@ position: relative;
 const TimeDisplayActual = styled.div`
 	position: relative;
 	top: 0px;
-	left: 15%;
+	left: 10%;
 `;
 
 const StyledLink = styled(Link)`
