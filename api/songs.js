@@ -1,7 +1,8 @@
-// api/songs.js
-import { create, router as _router, defaults } from "json-server";
+import { create, router as createRouter, defaults } from "json-server";
+import path from "path";
+
 const server = create();
-const router = _router("db.json"); // Create a db.json file in the root of your project
+const router = createRouter(path.join(__dirname, "db.json")); // Make sure the path to db.json is correct
 const middlewares = defaults();
 
 server.use(middlewares);
