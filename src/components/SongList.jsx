@@ -7,7 +7,7 @@ import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { space, layout, color, typography, buttonStyle } from "styled-system";
 import guitarMusic from "/music.jpg";
-import { getRelativeTime } from "../utils/TimeUtils";
+import { getRelativeTime } from "../utils/timeUtils";
 
 const SongList = () => {
 	const [showAll, setShowAll] = useState(false);
