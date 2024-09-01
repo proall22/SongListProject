@@ -10,7 +10,7 @@ const API_URL =
 	"https://mock-rest-36429c4i5-misganas-projects.vercel.app/api/songs";
 function* fetchSongs() {
 	try {
-		const response = yield call(fetch, "/api/songs");
+		const response = yield call(fetch, API_URL);
 		const data = yield response.json();
 		data.reverse();
 		yield put(fetchSongsSuccess(data));
@@ -21,7 +21,7 @@ function* fetchSongs() {
 
 function* addSong(action) {
 	const { newSong } = action.payload;
-	const response = yield call(fetch, "/api/songs", {
+	const response = yield call(fetch, API_URL, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(newSong),
@@ -32,7 +32,7 @@ function* addSong(action) {
 
 function* updateSong(action) {
 	const { updatedSong } = action.payload;
-	yield call(fetch, `/api/songs/${updatedSong.id}`, {
+	yield call(fetch, `${API_URL}${updatedSong.id}`, {
 		method: "PUT",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(updatedSong),
@@ -42,7 +42,7 @@ function* updateSong(action) {
 
 function* deleteSong(action) {
 	const { songId } = action.payload;
-	yield call(fetch, `/api/songs/${songId}`, {
+	yield call(fetch, `${API_URL}${songId}`, {
 		method: "DELETE",
 	});
 	yield put(deleteSongSuccess(songId));
