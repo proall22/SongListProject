@@ -6,7 +6,7 @@ import {
 	updateSongSuccess,
 	deleteSongSuccess,
 } from "../features/songsSlice";
-const API_URL = "https://my-json-server-w73f.onrender.com/songs";
+const API_URL = "https://my-json-server-w73f.onrender.com/api/songs";
 function* fetchSongs() {
 	try {
 		const response = yield call(fetch, API_URL);
