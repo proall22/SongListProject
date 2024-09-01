@@ -7,7 +7,7 @@ import {
 	deleteSongSuccess,
 } from "../features/songsSlice";
 const API_URL =
-	"https://mock-rest-36429c4i5-misganas-projects.vercel.app/api/songs";
+	"https://mock-rest-api.vercel.app/api/songs";
 function* fetchSongs() {
 	try {
 		const response = yield call(fetch, API_URL);
